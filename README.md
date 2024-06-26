@@ -4,6 +4,9 @@
  # Why Argo CD?
 Application definitions, configurations, and environments should be declarative and version controlled. Application deployment and lifecycle management should be automated, auditable, and easy to understand.
 
+# Architecture 
+![Screenshot from 2024-06-26 10-49-31](https://github.com/udhaya1148/argocd/assets/59645398/c14a11f5-88c5-4301-a5b1-85938e5a8a75)
+
 # Argo CD installion 
 
 ## Requirements :
