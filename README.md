@@ -12,7 +12,8 @@ Application definitions, configurations, and environments should be declarative 
 ## Requirements :
         Installed kubectl command-line tool.
         Have a kubeconfig file (default location is ~/.kube/config).
-        CoreDNS. Can be enabled for microk8s by microk8s enable dns && microk8s stop && microk8s start
+        CoreDNS. Can be enabled for microk8s by 
+            microk8s enable dns && microk8s stop && microk8s start
 
 ## 1) Install Argo CD into Kubernetes cluster :
          kubectl create namespace argocd
