@@ -5,7 +5,7 @@ Requirements :
         Have a kubeconfig file (default location is ~/.kube/config).
         CoreDNS. Can be enabled for microk8s by microk8s enable dns && microk8s stop && microk8s start
 
-1) Install Argo CD into Kubernetes cluster :
+## 1) Install Argo CD into Kubernetes cluster :
         ```kubectl create namespace argocd
          kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml```
 
