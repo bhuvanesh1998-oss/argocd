@@ -1,3 +1,4 @@
+
 # Argo CD installion 
 
 ## Requirements :
@@ -13,3 +14,36 @@
         curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
         sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
         rm argocd-linux-amd64
+
+## 3) Access The Argo CD API Server¶
+By default, the Argo CD API server is not exposed with an external IP. To access the API server, choose one of the following techniques to expose the Argo CD API server:
+
+## Service Type Load Balancer
+Change the argocd-server service type to LoadBalancer:
+
+    kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+
+                       or
+
+## Port Forwarding
+Kubectl port-forwarding can also be used to connect to the API server without exposing the service.
+
+    kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+## 4) Login Using The CLI 
+    argocd login <ARGOCD_SERVER ip & port>
+
+## Retrive initial password to login :
+    argocd admin initial-password -n argocd
+
+## 5) Register A Cluster To Deploy Apps :
+First list all clusters contexts in your current kubeconfig:
+
+    kubectl config get-contexts -o name
+
+Installs a ServiceAccount (argocd-manager), into the kube-system namespace of that kubectl context, and binds the service account to an admin-level ClusterRole. Argo CD uses this service account token to perform its management tasks (i.e. deploy/monitoring).
+
+    argocd cluster add <cluster name>
+
+
+
